@@ -17,7 +17,7 @@ jobs:
        ref: devTools
        path: devTools
     - id: list_dirs
-      run: echo "::set-output name=matrix::$(ls devTools/workModuleRun/*.py|jq -cnR '[inputs | select(length>0)]')"
+      run: echo "::set-output name=matrix::$(ls devTools/workModuleRun/dataClean/*.py|jq -cnR '[inputs | select(length>0)]')"
  ManyWorks:
     runs-on: ubuntu-latest
     needs: StartWorks
@@ -34,7 +34,7 @@ jobs:
        path: devTools
     - name: start $JOB
       run: |
-          sudo python3 $JOB
+          sudo python3 devTools/workModuleRun/GENworker.py $JOB
       env:
         JOB: ${{ matrix.job }}
  EndWorks:
