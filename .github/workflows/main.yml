@@ -5,6 +5,12 @@ on:
   issue_comment:
     types: [created]
 jobs:
+ PredWork:
+    runs-on: ubuntu-latest
+    steps:
+      - name: start time
+        run: |
+          sudo python3 devTools/workModuleRun/createRawLists.py
  StartWorks:
     runs-on: ubuntu-latest
     outputs:
