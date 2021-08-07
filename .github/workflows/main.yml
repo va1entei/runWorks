@@ -8,8 +8,14 @@ jobs:
  PredWork:
     runs-on: ubuntu-latest
     steps:
-      - name: start time
-        run: |
+    - uses: actions/checkout@v2
+      with:
+       repository: va1entei/basePlace
+       token: ${{ secrets.ACCESS_TOKEN }}
+       ref: devTools
+       path: devTools
+    - name: start time
+      run: |
           sudo python3 devTools/workModuleRun/createRawLists.py
  StartWorks:
     runs-on: ubuntu-latest
